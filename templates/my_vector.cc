@@ -1,5 +1,6 @@
 
 #include "my_vector.h"
+#include "exception/my_exception.h"
 
 template<typename T>
 Myvector<T>::Myvector() : data(nullptr), size(0), capacity(0) {}
@@ -19,7 +20,7 @@ Myvector<T>::~Myvector() {
 template<typename T>
 T& Myvector<T>::operator[](std::size_t index) {
   if(index >= size) {
-    throw std::out_of_range("Index out of range");
+    throw exception::OutofRangeException("Index out of range");
   }
   return data[index];
 }
@@ -27,7 +28,7 @@ T& Myvector<T>::operator[](std::size_t index) {
 template<typename T>
 const T& Myvector<T>::operator[](std::size_t index) const {
   if(index >= size) {
-    throw std::out_of_range("Index out of range");
+    throw exception::OutofRangeException("Index out of range");
   }
   return data[index];
 }

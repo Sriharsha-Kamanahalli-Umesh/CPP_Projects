@@ -1,5 +1,5 @@
 #include "my_vector.h"
-
+#include "exception/my_exception.h"
 #include "gtest/gtest.h"
 
 class VectorFixture : public testing::Test {
@@ -46,7 +46,7 @@ TEST_F(VectorFixture, VectorElementAccessWithException) {
   try {
     vec_obj[10];
   }
-  catch(const std::out_of_range &e) {
+  catch(const exception::OutofRangeException &e) {
     EXPECT_STREQ(e.what(), "Index out of range");
   }
 }
@@ -55,7 +55,7 @@ TEST_F(VectorFixture, VectorElementAccessWithExceptionWithConstFunction) {
   try {
     obj_vec[10];
   }
-  catch(const std::out_of_range &e) {
+  catch(const exception::OutofRangeException &e) {
     EXPECT_STREQ(e.what(), "Index out of range");
   }
 }

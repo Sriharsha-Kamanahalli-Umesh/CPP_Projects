@@ -4,6 +4,7 @@ cc_library(
   name = "my_vector",
   srcs = ["my_vector.cc"],
   hdrs = ["my_vector.h"],
+  deps = ["//exception:my_exception"],
   visibility = ["//visibility:public"],
 )
 
@@ -11,6 +12,6 @@ cc_test(
   name = "test_vec",
   srcs = ["my_vector_test.cc"],
   deps = ["@com_google_googletest//:gtest_main",
-          ":my_vector"  
+          ":my_vector"
         ]
 )
