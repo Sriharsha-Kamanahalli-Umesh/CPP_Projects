@@ -1,0 +1,6 @@
+* Implementation of Vector class
+
+// Steps to build
+* run  
+  bazel build test_vec
+

@@ -1,0 +1,5 @@
+* Implementation of Stack class
+
+// Steps to build
+* run  
+  bazel build main_test
