@@ -11,8 +11,7 @@ void Stack<T>::push(const T &value) {
   if(isFull()) {
     resize(2 * capacity_);
   }
-  top_++;
-  arr_[top_] = value;
+  arr_[top_++] = value;
 }
 
 template <typename T>
@@ -40,7 +39,7 @@ size_t Stack<T>::stackSize() const {
 
 template<typename T>
 T Stack<T>::top() const {
-  return arr_[top_];
+  return arr_[top_-1];
 }
 
 template <typename T>
@@ -56,3 +55,4 @@ void Stack<T>::resize(std::size_t new_capacity) {
 
 // Added template class for integer data
 template class Stack<int>;
+template class Stack<std::string>;

@@ -6,6 +6,8 @@ class VectorFixture : public testing::Test {
   protected:
       Myvector<int> vec_obj = {10, 20, 30, 40, 50, 60};
       const Myvector<int> obj_vec = {10, 20, 30, 40};
+
+      Myvector<std::string> vec = {"hello", "sriharsha", "how", "are", "you"};
 };
 
 TEST_F(VectorFixture, VectorInitialization) {
@@ -58,4 +60,12 @@ TEST_F(VectorFixture, VectorElementAccessWithExceptionWithConstFunction) {
   catch(const exception::OutofRangeException &e) {
     EXPECT_STREQ(e.what(), "Index out of range");
   }
+}
+
+TEST_F(VectorFixture, VectorString) {
+  EXPECT_EQ(vec[0], "hello");
+}
+
+TEST_F(VectorFixture, VectorString_) {
+  EXPECT_EQ(vec[2], "how");
 }

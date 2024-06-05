@@ -74,3 +74,4 @@ void Myvector<T>::resize(std::size_t new_capacity) {
 
 // Added template class for integer data
 template class Myvector<int>;
+template class Myvector<std::string>;
