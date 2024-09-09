@@ -1,5 +1,7 @@
 #include <iostream>
 #include "abankserver.h"
+
+namespace bankserverapplication {
 class Atmmachine {
   public:
     Atmmachine(BankServer *server);
@@ -9,3 +11,5 @@ class Atmmachine {
   private:
     BankServer *server_;
 };
+
+} // namespace bankserverapplication

@@ -1,5 +1,7 @@
 #include "abankserver.h"
 
+namespace bankserverapplication {
+
 AbankServer::AbankServer() : balance_(0.0) {}
 
 void AbankServer::Connect() {
@@ -23,3 +25,5 @@ void AbankServer::Debit(int account_number, double amount) {
 double AbankServer::GetBalance(int account_number) const {
   return balance_;
 }
+
+} // namespace bankserverapplication

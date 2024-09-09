@@ -1,5 +1,6 @@
 #include <iostream>
-// BankServer.h
+namespace bankserverapplication {
+
 class BankServer {
 public:
     virtual ~BankServer() = default;
@@ -9,3 +10,5 @@ public:
     virtual void Debit(int account_number, double amount) = 0;
     virtual double GetBalance(int account_number) const = 0;
 };
+
+} // namespace bankserverapplication

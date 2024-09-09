@@ -1,6 +1,5 @@
 
 #include "my_vector.h"
-#include "exception/my_exception.h"
 
 template<typename T>
 Myvector<T>::Myvector() : data(nullptr), size(0), capacity(0) {}
@@ -19,17 +18,11 @@ Myvector<T>::~Myvector() {
 
 template<typename T>
 T& Myvector<T>::operator[](std::size_t index) {
-  if(index >= size) {
-    throw exception::OutofRangeException("Index out of range");
-  }
   return data[index];
 }
 
 template<typename T>
 const T& Myvector<T>::operator[](std::size_t index) const {
-  if(index >= size) {
-    throw exception::OutofRangeException("Index out of range");
-  }
   return data[index];
 }
 
@@ -63,6 +56,12 @@ T* Myvector<T>::end() {
 
 template<typename T>
 void Myvector<T>::resize(std::size_t new_capacity) {
+  if(new_capacity==1){
+    T* new_data = new T[new_capacity];
+    data = new_data;
+    capacity = new_capacity;
+    return;
+  }
   T* new_data = new T[new_capacity];
   for(std::size_t i = 0; i < size; i++) {
     new_data[i] = data[i];

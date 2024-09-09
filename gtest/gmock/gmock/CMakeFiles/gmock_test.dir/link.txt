@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgmock_test.a  CMakeFiles/gmock_test.dir/src/abankserver.cc.o CMakeFiles/gmock_test.dir/src/atmapplication.cc.o
+/usr/bin/ranlib libgmock_test.a

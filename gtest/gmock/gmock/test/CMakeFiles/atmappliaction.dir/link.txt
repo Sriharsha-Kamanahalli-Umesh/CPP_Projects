@@ -1,0 +1,1 @@
+/usr/bin/c++   --coverage   --coverage CMakeFiles/atmappliaction.dir/test_atmapplication.cc.o  -o atmappliaction  ../libgmock_test.a /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 

@@ -1,5 +1,7 @@
 #include "bankserver.h"
 
+namespace bankserverapplication {
+
 class AbankServer : public BankServer{
   public:
     AbankServer();
@@ -12,3 +14,5 @@ class AbankServer : public BankServer{
     double balance_;
 
 };
+
+} // namespace bankserverapplication

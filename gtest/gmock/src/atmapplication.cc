@@ -1,4 +1,5 @@
 #include "atmapplication.h"
+namespace bankserverapplication {
 
 Atmmachine::Atmmachine(BankServer *server) : server_(server) {}
 
@@ -19,3 +20,6 @@ bool Atmmachine::WithDraw(int account_number, double amount) {
 double Atmmachine::CheckBalance(int account_number) {
   return server_->GetBalance(account_number);
 }
+
+
+} // namespace bankserverapplication
