@@ -1,9 +1,9 @@
 
-cmake_minimum_required(VERSION 3.16)
+# cmake_minimum_required(VERSION 3.16)
 
-project(SocailNetwork)
+# project(SocailNetwork)
 
-find_package(Threads)
+# find_package(Threads)
 
 add_library(social_network src/social_network.cc)
 target_include_directories(social_network PUBLIC inc)

@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(Gtest_Project CXX)
+project(lambdaAndThread_project CXX)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_subdirectory(gmock)
+add_subdirectory(lambda)
+add_subdirectory(Thread)

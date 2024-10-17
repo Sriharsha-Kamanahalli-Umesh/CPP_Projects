@@ -1,26 +1,31 @@
 cmake_minimum_required(VERSION 3.16)
-# Enable code coverage flags if using GCC or Clang
-if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    message(STATUS "Enabling code coverage compilation flags")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} --coverage")
-    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} --coverage")
-endif()
 
-find_package(Threads)
-find_package(GTest REQUIRED)
-# include_directories(${GTEST_INCLUDE_DIRS})
+Project(Template_project)
 
-add_library(myvector my_vector.cc)
+add_library(myvector STATIC src/my_vector.cc)
 
 enable_testing()
-target_include_directories(myvector PUBLIC my_vector.h)
+ #If we create INTERFACE, then it will not link with our target, 
+ #here it will not link with myvector library
+# target_include_directories(myvector INTERFACE inc/)
+# add_library(vector_dummy STATIC src/my_vector.cc)
 
-add_executable(main  my_vector_test.cc)
-target_link_libraries(main 
-  PUBLIC
-    myvector
-    GTest::GTest
-    GTest::Main)
+# #create with PRIVATE and linked with other target
+# target_include_directories(myvector PRIVATE inc/) 
+# add_library(vector_dummy STATIC src/my_vector.cc)
 
-add_test(NAME MyLibraryTest COMMAND main)
+# #create with PUBLIC and linked with other target
+target_include_directories(myvector PUBLIC inc/) 
+# add_library(vector_dummy STATIC src/my_vector.cc)
+
+# target_link_libraries(vector_dummy PRIVATE myvector)
+# add_executable(main my_vector_test.cc)
+# target_link_libraries(main 
+#   PUBLIC
+#     myvector
+#     GTest::GTest
+#     GTest::Main)
+
+# add_test(NAME MyLibraryTest COMMAND main)
+
+add_subdirectory(test)
