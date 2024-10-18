@@ -9,4 +9,4 @@ C++ projects:
     OR
 
     * just run the build_project.sh script
-        ./build_project.sh
+        ./build_project.sh this will run whole project files
