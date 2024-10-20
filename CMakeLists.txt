@@ -4,6 +4,8 @@ project(myproject)
 find_package(Threads)
 find_package(GTest REQUIRED)
 
+include(cmake/gcovr.cmake)
+
 add_subdirectory(gtest)
 add_subdirectory(exception)
 add_subdirectory(polymorphism)
