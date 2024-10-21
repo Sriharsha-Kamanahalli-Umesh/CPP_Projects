@@ -1,12 +1,12 @@
 C++ projects:
 
 * How to build
-    * create build directory using **mkdir build** (insted of name build you can give any name)
-    * go to the build directory using **cd build**
-    * run **cmake ..** in build directory to generate build system
-    * finally run **make** to build the project
+    * create build directory using **mkdir build** (insted of name build you can give any name).
+    * go to the build directory using **cd build**.
+    * run **cmake ..** in build directory to generate build system.
+    * finally run **make** to build the project.
 
     OR
 
     * just run the build_project.sh script
-        ./build_project.sh this will run whole project files
+        ./build_project.sh this will run whole project.
