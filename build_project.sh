@@ -3,7 +3,6 @@
 # Set the project directory
 PROJECT_DIR=$(pwd)
 
-# Print the path of the pwd
 echo "path of pwd" $PROJECT_DIR
 
 # Create a build directory
