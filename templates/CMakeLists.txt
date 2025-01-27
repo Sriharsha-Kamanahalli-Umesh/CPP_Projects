@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 3.16)
-
-Project(Template_project)
 
 add_library(myvector STATIC src/my_vector.cc)
 

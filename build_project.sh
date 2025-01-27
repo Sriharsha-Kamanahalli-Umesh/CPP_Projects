@@ -3,10 +3,14 @@
 # Set the project directory
 PROJECT_DIR=$(pwd)
 
-echo "path of pwd" $PROJECT_DIR
-
 # Create a build directory
 BUILD_DIR="$PROJECT_DIR/build"
+
+if [ -d $BUILD_DIR ] ; then
+    rm -rf $BUILD_DIR
+    echo "build folder found and deleted"
+fi
+
 mkdir -p $BUILD_DIR
 
 # Navigate to the build directory

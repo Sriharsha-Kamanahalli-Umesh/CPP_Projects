@@ -15,7 +15,7 @@ set(FAIL_UNDER_BRANCH_COVR_THRESHOLD_S2S_PERC    22)
 set(FAIL_UNDER_BRANCH_COVR_THRESHOLD_MS_REG_PERC    59)
 
 # ------------- set Report output -----------------------------
-set(Report_Output_Folder_CPP_Project ${CMAKE_SOURCE_DIR}/reports/gcovr)
+set(Report_Output_Folder_CPP_Project ${CMAKE_SOURCE_DIR}/GcovrReports/gcovr)
 
 add_custom_target(gcovr
     # COMMAND ${CMAKE_MAKE_PROGRAM} test

@@ -1,9 +1,9 @@
 
-add_executable(main my_vector_test.cc)
-target_link_libraries(main 
+add_executable(template_test test_my_vector.cc)
+
+target_link_libraries(template_test 
   PUBLIC
     myvector
     GTest::GTest
     GTest::Main)
 
-add_test(NAME MyLibraryTest COMMAND main)

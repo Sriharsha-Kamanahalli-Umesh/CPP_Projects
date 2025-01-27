@@ -1,13 +1,6 @@
 
-add_library(poly_lib runtime_poly.cc)
+add_library(poly_lib src/runtime_poly.cc)
 
-target_include_directories(poly_lib PUBLIC runtime_poly.h)
+target_include_directories(poly_lib PUBLIC inc)
 
-add_executable(poly_test  main.cc)
-target_link_libraries(poly_test 
-  PUBLIC
-    poly_lib
-    GTest::GTest
-    GTest::Main)
-
-# add_test(NAME MyLibraryTest COMMAND poly_test)
+add_subdirectory(test)
