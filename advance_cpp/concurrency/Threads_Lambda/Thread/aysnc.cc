@@ -4,12 +4,14 @@
 #include <chrono>
 
 // A function that simulates a time-consuming task
-int longTask(int x) {
+int longTask(int x)
+{
     std::this_thread::sleep_for(std::chrono::seconds(2));
     return x * x;
 }
 
-int main() {
+int main()
+{
     // Using std::launch::async to run the task in a new thread
     std::future<int> asyncResult = std::async(std::launch::async, longTask, 5);
 

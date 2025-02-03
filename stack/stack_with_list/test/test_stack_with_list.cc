@@ -1,7 +1,8 @@
 
 #include "stack_with_list.h"
 
-int main() {
+int main()
+{
   StackWithList<std::string> st;
   StackWithList<std::string> *node = nullptr;
 
@@ -12,7 +13,7 @@ int main() {
   st.push(&node, "you");
   st.push(&node, "young man");
 
-  std::cout<<"the top element is:"<<st.top(node)<<"\n";
+  std::cout << "the top element is:" << st.top(node) << "\n";
   st.pop(&node);
-  std::cout<<"the top element is:"<<st.top(node)<<"\n";
+  std::cout << "the top element is:" << st.top(node) << "\n";
 }

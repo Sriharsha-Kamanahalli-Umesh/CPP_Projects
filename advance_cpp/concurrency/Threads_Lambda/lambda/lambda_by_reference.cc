@@ -2,8 +2,7 @@
 #include <vector>
 #include <algorithm>
 
-
-int a=20;
+int a = 20;
 
 int main()
 {
@@ -12,11 +11,12 @@ int main()
     // Capture by reference
     std::for_each(int_vec.begin(),
                   int_vec.end(),
-                  [&](int x) {
-                        std::cout << x << " ";
-                        // We can modify 'discount' here since it's captured by reference.
-                        discount += x;
-                        std::cout<< " value of a is:" << a << "\n";
+                  [&](int x)
+                  {
+                      std::cout << x << " ";
+                      // We can modify 'discount' here since it's captured by reference.
+                      discount += x;
+                      std::cout << " value of a is:" << a << "\n";
                   });
     std::cout << std::endl;
     std::cout << "discount Vaue: " << discount << std::endl;

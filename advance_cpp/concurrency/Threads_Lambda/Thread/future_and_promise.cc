@@ -3,7 +3,7 @@
 #include <numeric>
 #include <thread>
 #include <vector>
- 
+
 void accumulate(std::vector<int>::iterator first,
                 std::vector<int>::iterator last,
                 std::promise<int> accumulate_promise)
@@ -11,7 +11,7 @@ void accumulate(std::vector<int>::iterator first,
     int sum = std::accumulate(first, last, 0);
     accumulate_promise.set_value(sum); // Notify future
 }
- 
+
 int main()
 {
     // Demonstrate using promise<int> to transmit a result between threads.
@@ -20,7 +20,7 @@ int main()
     std::future<int> accumulate_future = accumulate_promise.get_future();
     std::thread work_thread(accumulate, numbers.begin(), numbers.end(),
                             std::move(accumulate_promise));
- 
+
     // future::get() will wait until the future has a valid result and retrieves it.
     // Calling wait() before get() is not needed
     // accumulate_future.wait(); // wait for result
