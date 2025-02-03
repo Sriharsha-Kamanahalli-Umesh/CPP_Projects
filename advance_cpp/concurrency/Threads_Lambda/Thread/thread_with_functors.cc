@@ -4,14 +4,14 @@
 // function Object
 class SomeFunctor
 {
-    public:
-        void operator()()
+public:
+    void operator()()
+    {
+        for (int i = 0; i < 5; i++)
         {
-            for (int i = 0; i < 5; i++)
-            {
-                std::cout << "Display Thread Executing" << std::endl;
-            }
+            std::cout << "Display Thread Executing" << std::endl;
         }
+    }
 };
 
 int main()

@@ -1,6 +1,7 @@
 #include "social_network.h"
 
-int main() {
+int main()
+{
 
 	SocialNetwork socialNetwork;
 
@@ -28,31 +29,34 @@ int main() {
 	socialNetwork.addUser(user2);
 
 	auto userName = socialNetwork.searchUserByName("Sriharsha");
-	for(const auto& user : userName) {
-		std::cout<<"user name: "<< user.getName() <<"\n";
-		std::cout<<"User ID: "<< user.getId() <<"\n";
+	for (const auto &user : userName)
+	{
+		std::cout << "user name: " << user.getName() << "\n";
+		std::cout << "User ID: " << user.getId() << "\n";
 	}
 
 	auto userName1 = socialNetwork.searchUserByName("Sahana");
-	for(const auto& user : userName1) {
-		std::cout<<"user name: "<< user.getName() <<"\n";
-		std::cout<<"User ID: "<< user.getId() <<"\n";
+	for (const auto &user : userName1)
+	{
+		std::cout << "user name: " << user.getName() << "\n";
+		std::cout << "User ID: " << user.getId() << "\n";
 	}
 
 	auto hobbies = socialNetwork.searchUserByHobbies({"Tennis", "Jogging"});
-	for(const auto& user : hobbies) {
-		std::cout<<"user with hobby tesnnis: "<< user.getName() <<"\n";
+	for (const auto &user : hobbies)
+	{
+		std::cout << "user with hobby tesnnis: " << user.getName() << "\n";
 	}
 
 	auto hobbies1 = socialNetwork.searchUserByHobbies({"Jogging"});
-	for(const auto& user : hobbies1) {
-		std::cout<<"user with hobby Jogging: "<< user.getName() <<"\n";
+	for (const auto &user : hobbies1)
+	{
+		std::cout << "user with hobby Jogging: " << user.getName() << "\n";
 	}
 
 	auto friends = socialNetwork.getFriendsOfUser(user1.getId());
-	for(const auto& user : friends) {
-		std::cout<<"user with hobby Jogging: "<< user <<"\n";
+	for (const auto &user : friends)
+	{
+		std::cout << "user with hobby Jogging: " << user << "\n";
 	}
-	
-
 }

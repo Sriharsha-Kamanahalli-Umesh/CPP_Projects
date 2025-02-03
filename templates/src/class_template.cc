@@ -2,16 +2,19 @@
 using namespace std;
 
 template <class T>
-class myPair {
+class myPair
+{
   T x, y;
+
 public:
-  myPair (T first, T second) {
+  myPair(T first, T second)
+  {
     x = first;
     y = second;
   }
 
 public:
-  T add ()
+  T add()
   {
     T result;
     result = x + y;
@@ -19,10 +22,11 @@ public:
   }
 };
 
-int main() {
-  myPair <int> intPair(3, 7);
-  myPair <double> doublePair(3.5, 7.2);
-  myPair <string> stringPair("Hello", " World!");
+int main()
+{
+  myPair<int> intPair(3, 7);
+  myPair<double> doublePair(3.5, 7.2);
+  myPair<string> stringPair("Hello", " World!");
 
   cout << intPair.add() << endl;
   cout << doublePair.add() << endl;

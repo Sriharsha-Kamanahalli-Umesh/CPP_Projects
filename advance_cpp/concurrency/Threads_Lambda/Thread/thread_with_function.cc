@@ -17,7 +17,7 @@ int main()
     for (int i = 0; i < 200; i++)
     {
         std::cout << "Display From MainThread" << std::endl;
-    }    
+    }
     // Wait for the thread to finish
     threadObj.join();
     // threadObj.join();

@@ -1,14 +1,17 @@
 #include <iostream>
 #include <thread>
 
-void task() {
+void task()
+{
     std::cout << "Thread task is executing.\n";
 }
 
-int main() {
+int main()
+{
     std::thread t1(task);
-    // Always check if the thread is joinable before joining or detaching. 
-    if (t1.joinable()) {
+    // Always check if the thread is joinable before joining or detaching.
+    if (t1.joinable())
+    {
         // Ensure that the thread finishes before the main thread proceeds
         t1.join();
         std::cout << "Thread joined. \n";
