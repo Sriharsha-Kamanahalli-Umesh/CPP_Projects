@@ -1,6 +1,9 @@
 #include "my_vector.h"
 #include "gtest/gtest.h"
 
+/**
+ * @brief Test fixture for Myvector tests.
+ */
 class VectorFixture : public testing::Test
 {
 protected:
@@ -10,6 +13,9 @@ protected:
   Myvector<std::string> vec = {"hello", "sriharsha", "how", "are", "you"};
 };
 
+/**
+ * @brief Test to check vector initialization and push_back functionality.
+ */
 TEST_F(VectorFixture, VectorInitialization)
 {
   vec_obj.push_back(70);
@@ -26,54 +32,57 @@ TEST_F(VectorFixture, VectorInitialization)
   }
 }
 
+/**
+ * @brief Test to check the size of the vector.
+ */
 TEST_F(VectorFixture, VectorgetSize)
 {
   EXPECT_EQ(vec_obj.getSize(), 6);
 }
 
+/**
+ * @brief Test to check the capacity of the vector.
+ */
 TEST_F(VectorFixture, VectorgetCapacity)
 {
   EXPECT_EQ(vec_obj.getCapacity(), 8);
 }
 
+/**
+ * @brief Test to check the begin iterator of the vector.
+ */
 TEST_F(VectorFixture, Vectorbegin)
 {
   EXPECT_EQ(*(vec_obj.begin()), 10);
 }
 
+/**
+ * @brief Test to check the end iterator of the vector.
+ */
 TEST_F(VectorFixture, Vectorend)
 {
   EXPECT_EQ(*(vec_obj.end()), 70);
 }
 
+/**
+ * @brief Test to check element access in a const vector.
+ */
 TEST_F(VectorFixture, VectorElementAccess)
 {
   EXPECT_EQ(obj_vec[0], 10);
 }
 
-// TEST_F(VectorFixture, VectorElementAccessWithException) {
-//   try {
-//     vec_obj[10];
-//   }
-//   catch(const exception::OutofRangeException &e) {
-//     EXPECT_STREQ(e.what(), "Index out of range");
-//   }
-// }
-
-// TEST_F(VectorFixture, VectorElementAccessWithExceptionWithConstFunction) {
-//   try {
-//     obj_vec[10];
-//   }
-//   catch(const exception::OutofRangeException &e) {
-//     EXPECT_STREQ(e.what(), "Index out of range");
-//   }
-// }
-
+/**
+ * @brief Test to check string element access in the vector.
+ */
 TEST_F(VectorFixture, VectorString)
 {
   EXPECT_EQ(vec[0], "hello");
 }
 
+/**
+ * @brief Test to check string element access in the vector.
+ */
 TEST_F(VectorFixture, VectorString_)
 {
   EXPECT_EQ(vec[2], "how");

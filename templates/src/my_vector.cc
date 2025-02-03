@@ -1,9 +1,15 @@
-
 #include "my_vector.h"
 
+/**
+ * @brief Default constructor.
+ */
 template <typename T>
 Myvector<T>::Myvector() : data(nullptr), size(0), capacity(0) {}
 
+/**
+ * @brief Initializer list constructor.
+ * @param list Initializer list to initialize the vector.
+ */
 template <typename T>
 Myvector<T>::Myvector(std::initializer_list<T> list) : Myvector()
 {
@@ -13,24 +19,41 @@ Myvector<T>::Myvector(std::initializer_list<T> list) : Myvector()
   }
 }
 
+/**
+ * @brief Destructor.
+ */
 template <typename T>
 Myvector<T>::~Myvector()
 {
   delete[] data;
 }
 
+/**
+ * @brief Element access operator.
+ * @param index Index of the element to access.
+ * @return Reference to the element at the specified index.
+ */
 template <typename T>
 T &Myvector<T>::operator[](std::size_t index)
 {
   return data[index];
 }
 
+/**
+ * @brief Const element access operator.
+ * @param index Index of the element to access.
+ * @return Const reference to the element at the specified index.
+ */
 template <typename T>
 const T &Myvector<T>::operator[](std::size_t index) const
 {
   return data[index];
 }
 
+/**
+ * @brief Add element to the end of the vector.
+ * @param value Element to add.
+ */
 template <typename T>
 void Myvector<T>::push_back(const T &value)
 {
@@ -41,30 +64,50 @@ void Myvector<T>::push_back(const T &value)
   data[size++] = value;
 }
 
+/**
+ * @brief Get the size of the vector.
+ * @return Size of the vector.
+ */
 template <typename T>
 std::size_t Myvector<T>::getSize() const
 {
   return size;
 }
 
+/**
+ * @brief Get the capacity of the vector.
+ * @return Capacity of the vector.
+ */
 template <typename T>
 std::size_t Myvector<T>::getCapacity() const
 {
   return capacity;
 }
 
+/**
+ * @brief Get the begin iterator of the vector.
+ * @return Pointer to the first element of the vector.
+ */
 template <typename T>
 T *Myvector<T>::begin()
 {
   return data;
 }
 
+/**
+ * @brief Get the end iterator of the vector.
+ * @return Pointer to the element past the last element of the vector.
+ */
 template <typename T>
 T *Myvector<T>::end()
 {
   return data + size;
 }
 
+/**
+ * @brief Resize the vector to a new capacity.
+ * @param new_capacity New capacity of the vector.
+ */
 template <typename T>
 void Myvector<T>::resize(std::size_t new_capacity)
 {
@@ -85,6 +128,6 @@ void Myvector<T>::resize(std::size_t new_capacity)
   capacity = new_capacity;
 }
 
-// Added template class for integer data
+// Explicit instantiation of template classes
 template class Myvector<int>;
 template class Myvector<std::string>;

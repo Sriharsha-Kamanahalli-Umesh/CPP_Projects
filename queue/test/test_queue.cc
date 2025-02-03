@@ -1,5 +1,18 @@
+/**
+ * @file test_queue.cc
+ * @brief Test file for the Queue class.
+ */
+
 #include "queue.h"
 
+/**
+ * @brief Main function to test the Queue class.
+ * 
+ * This function creates a Queue of integers, enqueues elements, 
+ * prints the front element, dequeues elements, and prints the size of the queue.
+ * 
+ * @return int Returns 0 on successful execution.
+ */
 int main()
 {
   Queue<int> que;
