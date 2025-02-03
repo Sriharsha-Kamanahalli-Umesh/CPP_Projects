@@ -1,5 +1,12 @@
 #include "sort.h"
 
+/**
+ * @brief Sorts an array using the insertion sort algorithm.
+ * 
+ * @tparam T The type of the elements in the array.
+ * @param arr The array to be sorted.
+ * @param arr_size The size of the array.
+ */
 template <typename T>
 void Sort<T>::InsertionSort(T arr[], size_t const arr_size)
 {
@@ -16,6 +23,13 @@ void Sort<T>::InsertionSort(T arr[], size_t const arr_size)
   }
 }
 
+/**
+ * @brief Sorts an array using the selection sort algorithm.
+ * 
+ * @tparam T The type of the elements in the array.
+ * @param arr The array to be sorted.
+ * @param arr_size The size of the array.
+ */
 template <typename T>
 void Sort<T>::SelectionSort(T arr[], size_t const arr_size)
 {

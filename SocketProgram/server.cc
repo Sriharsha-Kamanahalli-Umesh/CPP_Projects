@@ -1,5 +1,8 @@
-// C++ program to show the example of server application in
-// socket programming
+/**
+ * @file server.cc
+ * @brief Server application for socket programming.
+ */
+
 #include <cstring>
 #include <iostream>
 #include <netinet/in.h>
@@ -8,6 +11,14 @@
 
 using namespace std;
 
+/**
+ * @brief Main function for the server application.
+ * 
+ * This function creates a socket, binds it to an address, listens for connections,
+ * accepts a connection, and sends and receives messages.
+ * 
+ * @return int Returns 0 on successful execution.
+ */
 int main()
 {
     // creating socket
@@ -29,7 +40,7 @@ int main()
     // accepting connection request
     int clientSocket = accept(serverSocket, nullptr, nullptr);
 
-    // recieving data
+    // receiving data
     while (1)
     {
         char buffer[1024] = {0};

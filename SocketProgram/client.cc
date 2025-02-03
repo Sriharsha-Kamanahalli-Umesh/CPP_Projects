@@ -1,5 +1,8 @@
-// C++ program to illustrate the client application in the
-// socket programming
+/**
+ * @file client.cc
+ * @brief Client application for socket programming.
+ */
+
 #include <cstring>
 #include <iostream>
 #include <netinet/in.h>
@@ -8,6 +11,13 @@
 
 using namespace std;
 
+/**
+ * @brief Main function for the client application.
+ * 
+ * This function creates a socket, connects to the server, sends and receives messages.
+ * 
+ * @return int Returns 0 on successful execution.
+ */
 int main()
 {
     // creating socket

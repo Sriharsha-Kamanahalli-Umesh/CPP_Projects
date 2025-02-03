@@ -1,11 +1,24 @@
+/**
+ * @file queue.cc
+ * @brief Implementation file for the Queue class.
+ */
+
 #include "queue.h"
 
+/**
+ * @brief Constructs a new Queue object.
+ */
 template <typename T>
 Queue<T>::Queue() : rear_(0), front_(0), capacity_(1)
 {
   arr_ = new T[capacity_];
 }
 
+/**
+ * @brief Adds an element to the end of the queue.
+ * 
+ * @param value The value to be added to the queue.
+ */
 template <typename T>
 void Queue<T>::enqueue(const T &value)
 {
@@ -16,6 +29,12 @@ void Queue<T>::enqueue(const T &value)
   arr_[rear_++] = value;
 }
 
+/**
+ * @brief Removes and returns the front element of the queue.
+ * 
+ * @return T The front element of the queue.
+ * @throws std::underflow_error if the queue is empty.
+ */
 template <typename T>
 T Queue<T>::dequeue()
 {
@@ -32,6 +51,12 @@ T Queue<T>::dequeue()
   return que_ele;
 }
 
+/**
+ * @brief Returns the front element of the queue without removing it.
+ * 
+ * @return T The front element of the queue.
+ * @throws std::underflow_error if the queue is empty.
+ */
 template <typename T>
 T Queue<T>::front() const
 {
@@ -42,24 +67,44 @@ T Queue<T>::front() const
   return arr_[front_];
 }
 
+/**
+ * @brief Returns the number of elements in the queue.
+ * 
+ * @return size_t The size of the queue.
+ */
 template <typename T>
 size_t Queue<T>::queueSize()
 {
   return rear_;
 }
 
+/**
+ * @brief Checks if the queue is full.
+ * 
+ * @return true if the queue is full, false otherwise.
+ */
 template <typename T>
 bool Queue<T>::isFull() const
 {
   return rear_ == capacity_;
 }
 
+/**
+ * @brief Checks if the queue is empty.
+ * 
+ * @return true if the queue is empty, false otherwise.
+ */
 template <typename T>
 bool Queue<T>::isEmpty() const
 {
   return rear_ == front_;
 }
 
+/**
+ * @brief Resizes the queue to a new capacity.
+ * 
+ * @param new_capacity The new capacity of the queue.
+ */
 template <typename T>
 void Queue<T>::resize(size_t new_capacity)
 {

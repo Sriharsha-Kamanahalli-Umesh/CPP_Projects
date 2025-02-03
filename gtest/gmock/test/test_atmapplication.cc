@@ -6,6 +6,9 @@
 
 namespace bankserverapplication {
 
+/**
+ * @brief Test to check ATM machine functionality with a real bank server.
+ */
 TEST(Atmmachine, TestingAtmmachine) {
   AbankServer server;
   Atmmachine atmachine(&server);
@@ -17,6 +20,10 @@ TEST(Atmmachine, TestingAtmmachine) {
 }
 
 using ::testing::Return;
+
+/**
+ * @brief Mock class for BankServer.
+ */
 class MockBankServer : public BankServer {
   public:
     MOCK_METHOD(void, Connect, (), (override));
@@ -26,6 +33,9 @@ class MockBankServer : public BankServer {
     MOCK_METHOD(double, GetBalance, (int account_number), (const, override));
 };
 
+/**
+ * @brief Test to check ATM machine functionality with a mock bank server.
+ */
 TEST(Atmmachine, TestingAtmmachineUsingMock) {
   MockBankServer mock_server;
 
@@ -39,6 +49,5 @@ TEST(Atmmachine, TestingAtmmachineUsingMock) {
   double amount = atmachine.CheckBalance(1234);
   EXPECT_EQ(amount, 1000);
 }
-
 
 } // namespace bankserverapplication
