@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/template_test.dir/test_my_vector.cc.o  -o template_test  ../libmyvector.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgtest.a -lpthread 

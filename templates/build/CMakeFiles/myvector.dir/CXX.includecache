@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../inc/my_vector.h
+iostream
+-
+initializer_list
+-
+
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/src/my_vector.cc
+my_vector.h
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/src/my_vector.h
+

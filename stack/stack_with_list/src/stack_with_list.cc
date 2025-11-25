@@ -4,7 +4,7 @@
  * @brief Default constructor for StackWithList
  */
 template <typename T>
-StackWithList<T>::StackWithList() {}
+StackWithList<T>::StackWithList() = default;
 
 /**
  * @brief Constructor with initial value for StackWithList
