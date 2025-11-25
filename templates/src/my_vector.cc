@@ -4,7 +4,7 @@
  * @brief Default constructor.
  */
 template <typename T>
-Myvector<T>::Myvector() : data(nullptr), size(0), capacity(0) {}
+Myvector<T>::Myvector() : ptr(nullptr), size_(0), capacity_(0) {}
 
 /**
  * @brief Initializer list constructor.
@@ -20,12 +20,78 @@ Myvector<T>::Myvector(std::initializer_list<T> list) : Myvector()
 }
 
 /**
+ * @brief Copy constructor.
+ * @param other Another Myvector object to copy from.
+ */
+template <typename T>
+Myvector<T>::Myvector(const Myvector& other) {
+  std::cout << "Copy constructor called\n" << "\n";
+  ptr = new T[other.capacity_];
+  size_ = other.size_;
+  capacity_ = other.capacity_;
+  std::copy(other.ptr, other.ptr + other.size_, ptr);
+}
+
+/**
+ * @brief Move constructor.
+ * @param other Another Myvector object to move from.
+ */
+template <typename T>
+Myvector<T>::Myvector(Myvector&& other) noexcept {
+  std::cout << "Move constructor called\n" << "\n";
+  ptr = other.ptr;
+  size_ = other.size_;
+  capacity_ = other.capacity_;
+  other.ptr = nullptr;
+  other.size_ = 0;
+  other.capacity_ = 0;
+}
+
+/**
+ * @brief Copy assignment operator.
+ * @param other Another Myvector object to move from.
+ * @return Reference to the assigned object.
+ */
+template <typename T>
+Myvector<T>& Myvector<T>::operator=(const Myvector& other) {
+  std::cout << "Copy assignment operator called\n" << "\n";
+  if(this != &other) {
+    delete[] ptr;
+    ptr = new T[other.capacity_];
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    std::copy(other.ptr, other.ptr + other.size_, ptr);
+  }
+  return *this;
+}
+
+/**
+ * @brief Move assignment operator.
+ * @param other Another Myvector object to move from.
+ * @return Reference to the assigned object.
+ */
+template <typename T>
+Myvector<T>& Myvector<T>::operator=(Myvector&& other) noexcept {
+  std::cout << "Move assignment operator called\n" << "\n";
+  if(this != &other){
+    delete[] ptr;
+    ptr = other.ptr;
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    other.ptr = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
+  }
+  return *this;
+}
+
+/**
  * @brief Destructor.
  */
 template <typename T>
 Myvector<T>::~Myvector()
 {
-  delete[] data;
+  delete[] ptr;
 }
 
 /**
@@ -36,7 +102,11 @@ Myvector<T>::~Myvector()
 template <typename T>
 T &Myvector<T>::operator[](std::size_t index)
 {
-  return data[index];
+  if (index >= size_) {
+    throw std::out_of_range("Index out of bounds");
+  }
+
+  return ptr[index];
 }
 
 /**
@@ -47,7 +117,10 @@ T &Myvector<T>::operator[](std::size_t index)
 template <typename T>
 const T &Myvector<T>::operator[](std::size_t index) const
 {
-  return data[index];
+  if (index >= size_) {
+    throw std::out_of_range("Index out of bounds");
+  }
+  return ptr[index];
 }
 
 /**
@@ -57,11 +130,106 @@ const T &Myvector<T>::operator[](std::size_t index) const
 template <typename T>
 void Myvector<T>::push_back(const T &value)
 {
-  if (size == capacity)
+  if (size_ == capacity_)
   {
-    resize(capacity == 0 ? 1 : 2 * capacity);
+    resize(capacity_ == 0 ? 1 : 2 * capacity_);
   }
-  data[size++] = value;
+  ptr[size_++] = value;
+}
+
+/**
+ * @brief Remove the last element of the vector.
+ */
+template <typename T>
+void Myvector<T>::pop_back()
+{
+  if (size_ > 0)
+  {
+    --size_;
+  }
+}
+
+/**
+ * @brief Get the first element of the vector.
+ * @return Reference to the first element of the vector.
+ */
+template <typename T>
+const T& Myvector<T>::front() const
+{
+  if(size_ == 0) 
+  {
+    throw std::out_of_range("Vector is empty");
+  }
+  return ptr[0];
+}
+
+/**
+ * @brief Get the last element of the vector.
+ * @return Reference to the last element of the vector.
+ */
+template <typename T>
+const T& Myvector<T>::back() const
+{
+  if(size_ == 0) 
+  {
+    throw std::out_of_range("Vector is empty");
+  }
+  return ptr[size_ - 1];
+}
+
+/**
+ * @brief Insert an element at a specific index.
+ * @param index Index to insert the element at.
+ * @param value Element to insert.
+ */
+template <typename T>
+void Myvector<T>::insert(std::size_t index, const T& value) 
+{
+  if (index > size_) {
+      throw std::out_of_range("Insert index out of bounds");
+  }
+  if(size_ == capacity_)
+  {
+    resize(capacity_ == 0 ? 1 : 2 * capacity_);
+  }
+  for(std::size_t i = size_; i > index; --i) 
+  {
+    ptr[i] = ptr[i-1];
+  }
+  ptr[index] = value;
+  ++size_;
+}
+
+/**
+ * @brief Remove an element at a specific index.
+ * @param index Index to remove the element from.
+ */
+template <typename T>
+void Myvector<T>::erase(std::size_t index)
+{
+  if(index >= size_)
+  {
+    throw std::out_of_range("Erase index out of bounds");
+  }
+  if(index < size_)
+  {
+    for(std::size_t i = index; i < size_-1; ++i)
+    {
+      ptr[i] = ptr[i+1];
+    }
+    --size_;
+  }
+}
+
+/**
+ * @brief Clear the vector.
+ */
+template <typename T>
+void Myvector<T>::clear() 
+{
+  delete[] ptr;
+  ptr = nullptr;
+  size_ = 0;
 }
 
 /**
@@ -69,9 +237,9 @@ void Myvector<T>::push_back(const T &value)
  * @return Size of the vector.
  */
 template <typename T>
-std::size_t Myvector<T>::getSize() const
+std::size_t Myvector<T>::size() const
 {
-  return size;
+  return size_;
 }
 
 /**
@@ -79,9 +247,9 @@ std::size_t Myvector<T>::getSize() const
  * @return Capacity of the vector.
  */
 template <typename T>
-std::size_t Myvector<T>::getCapacity() const
+std::size_t Myvector<T>::capacity() const
 {
-  return capacity;
+  return capacity_;
 }
 
 /**
@@ -89,9 +257,9 @@ std::size_t Myvector<T>::getCapacity() const
  * @return Pointer to the first element of the vector.
  */
 template <typename T>
-T *Myvector<T>::begin()
+T *Myvector<T>::begin() const
 {
-  return data;
+  return ptr;
 }
 
 /**
@@ -99,9 +267,15 @@ T *Myvector<T>::begin()
  * @return Pointer to the element past the last element of the vector.
  */
 template <typename T>
-T *Myvector<T>::end()
+T *Myvector<T>::end() const
 {
-  return data + size;
+  return ptr + size_;
+}
+
+template <typename T>
+T* Myvector<T>::data() const
+{
+  return ptr;
 }
 
 /**
@@ -114,18 +288,19 @@ void Myvector<T>::resize(std::size_t new_capacity)
   if (new_capacity == 1)
   {
     T *new_data = new T[new_capacity];
-    data = new_data;
-    capacity = new_capacity;
+    ptr = new_data;
+    capacity_ = new_capacity;
     return;
   }
   T *new_data = new T[new_capacity];
-  for (std::size_t i = 0; i < size; i++)
+  for (std::size_t i = 0; i < size_; i++)
   {
-    new_data[i] = data[i];
+    new_data[i] = ptr[i];
   }
-  delete[] data;
-  data = new_data;
-  capacity = new_capacity;
+  delete[] ptr;
+  ptr = new_data;
+  capacity_ = new_capacity;
+  
 }
 
 // Explicit instantiation of template classes

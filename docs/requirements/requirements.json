@@ -1,0 +1,91 @@
+{
+    "created": "2023-11-30T12:49:54.727580+01:00",
+    "current_version": "",
+    "project": "review",
+    "versions": {
+        "": {
+            "created": "2023-11-30T12:49:46.848141+01:00",
+            "filters": {},
+            "filters_amount": 0,
+            "needs": {
+                "MW-7428": {
+                    "created": "2023-11-20T12:57:07.933000+01:00",
+                    "description": ".. raw:: html\n\n  <span style=\"font-size: 10pt;line-height: 1.5;\">The component MotionWise Application S2S (short-name MA_COMS2S) shall move data between the Dex_Element interface and the ara::com Event interface, in both directions.</span>",
+                    "id": "MW-7428",
+                    "priority": "50.0",
+                    "reqtype": "functional",
+                    "safety": "qm",
+                    "security": null,
+                    "severity": "should_have",
+                    "status": "reviewed",
+                    "tags": [
+                        "polarion_imported"
+                    ],
+                    "title": "The component MotionWise Application S2S (short-name MA_COMS2S) shall move data...",
+                    "type": "req",
+                    "url": "https://polarion.tttech-auto.com/polarion/redirect/project/motionwise/workitem?id=MW-7428",
+                    "verificationcriteria": "GIVEN: an Event mapped to a Dex_element (direction from SOA to Classic) \nWHEN: MA_COMS2S receives the Event from the ara::com::GetNewSamples() interface\nTHEN: MA_COMS2S sends Dex_element to the ms_net::Send() interface\n\nGIVEN: an Event mapped to a Dex_element (direction from Classic to SOA)\nWHEN: MA_COMS2S receives the Dex_element from the ms_net::Receive() interface\nTHEN: MA_COMS2S sends the Event to the ara::com::Send() interface",
+                    "verificationmethod": "test"
+                },
+                "MW-7430": {
+                    "created": "2023-11-20T13:00:24.455000+01:00",
+                    "description": ".. raw:: html\n\n  <span style=\"font-size: 10pt;line-height: 1.5;\">To communicate with MotionWise Classic Host, MA_COMS2S\u00a0shall use component MS_NET</span>",
+                    "id": "MW-7430",
+                    "priority": "50.0",
+                    "reqtype": null,
+                    "safety": "qm",
+                    "security": null,
+                    "severity": "should_have",
+                    "status": "draft",
+                    "tags": [
+                        "polarion_imported"
+                    ],
+                    "title": "To communicate with MotionWise Classic Host, MA_COMS2S shall use component MS_NE...",
+                    "type": "req",
+                    "url": "https://polarion.tttech-auto.com/polarion/redirect/project/motionwise/workitem?id=MW-7430",
+                    "verificationcriteria": "GIVEN: a Dex_element that is intended to be produced by MA_COMS2S\nWHEN: MA_COMS2S produces the Dex_element\nTHEN: MA_COMS2S uses the MS_NET interface Send()\n\nGIVEN: a Dex_element that is intended to be produced by MA_COMS2S\nWHEN: MA_COMS2S receives the Dex_element\nTHEN: MA_COMS2S uses the MS_NET interface Receive()\n",
+                    "verificationmethod": "test"
+                },
+                "MW-7431": {
+                    "created": "2023-11-20T13:00:24.513000+01:00",
+                    "description": ".. raw:: html\n\n  <span style=\"font-size: 10pt;line-height: 1.5;\">To communicate with AUTOSAR Adaptive Applications,\u00a0</span>MA_COMS2S\u00a0<span style=\"font-size: 10pt;line-height: 1.5;\">shall use AUTOSAR ara::com interface.</span>",
+                    "id": "MW-7431",
+                    "priority": "50.0",
+                    "reqtype": null,
+                    "safety": "qm",
+                    "security": null,
+                    "severity": "should_have",
+                    "status": "draft",
+                    "tags": [
+                        "polarion_imported"
+                    ],
+                    "title": "To communicate with AUTOSAR Adaptive Applications, MA_COMS2S shall use AUTOSAR a...",
+                    "type": "req",
+                    "url": "https://polarion.tttech-auto.com/polarion/redirect/project/motionwise/workitem?id=MW-7431",
+                    "verificationcriteria": "GIVEN: an Adaptive Events that is intended to be produced by MA_COMS2S\nWHEN: MA_COMS2S produces the Event\nTHEN: MA_COMS2S uses the ara::com interface Send()\n\nGIVEN: an Adaptive Events that is intended to be received by MA_COMS2S\nWHEN: MA_COMS2S receives the Event\nTHEN: MA_COMS2S uses the ara::com interface GetNewSamples()\n",
+                    "verificationmethod": "test"
+                },
+                "MW-7935": {
+                    "created": "2023-11-24T10:31:09.671000+01:00",
+                    "description": ".. raw:: html\n\n  The\u00a0<span style=\"font-size: 10pt;line-height: 1.5;\">Basic period\u00a0</span>is 10 ms.",
+                    "id": "MW-7935",
+                    "priority": "50.0",
+                    "reqtype": null,
+                    "safety": null,
+                    "security": null,
+                    "severity": "should_have",
+                    "status": "draft",
+                    "tags": [
+                        "polarion_imported"
+                    ],
+                    "title": "The Basic period is 10 ms.",
+                    "type": "req",
+                    "url": "https://polarion.tttech-auto.com/polarion/redirect/project/motionwise/workitem?id=MW-7935",
+                    "verificationcriteria": "GIVEN: WHEN: THEN:",
+                    "verificationmethod": null
+                }
+            },
+            "needs_amount": 0
+        }
+    }
+}

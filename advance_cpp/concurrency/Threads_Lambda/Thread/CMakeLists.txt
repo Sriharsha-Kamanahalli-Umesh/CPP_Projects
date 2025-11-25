@@ -2,8 +2,8 @@
 
 # project(Thread_project CXX)
 
-# set(CMAKE_CXX_STANDARD 11)
-# set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Threads REQUIRED)
 
 add_executable(future_and_promise
@@ -48,8 +48,9 @@ target_link_libraries(atomic_var ${CMAKE_THREAD_LIBS_INIT})
 
 
 add_executable(condition_var
-    condition_variable.cc
+    main.cpp
     )
+target_link_directories(condition_var PRIVATE ${CMAKE_SOURCE_DIR}/condition_variable.h)
 target_link_libraries(condition_var ${CMAKE_THREAD_LIBS_INIT})
 
 add_executable(prod_cons

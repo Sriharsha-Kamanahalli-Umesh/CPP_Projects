@@ -1,4 +1,5 @@
-
+cmake_minimum_required(VERSION 3.16)
+project(myvector)
 add_library(myvector STATIC src/my_vector.cc)
 
 enable_testing()
@@ -25,4 +26,9 @@ target_include_directories(myvector PUBLIC inc/)
 
 # add_test(NAME MyLibraryTest COMMAND main)
 
+
+set_target_properties(myvector PROPERTIES
+    CXX_CLANG_TIDY "clang-tidy;-checks=modernize-*;-warnings-as-errors=modernize-use-default-member-init,modernize-loop-convert"
+)
+find_package(GTest REQUIRED)
 add_subdirectory(test)

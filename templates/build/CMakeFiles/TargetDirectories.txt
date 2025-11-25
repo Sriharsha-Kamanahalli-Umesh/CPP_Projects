@@ -1,0 +1,9 @@
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/CMakeFiles/rebuild_cache.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/CMakeFiles/edit_cache.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/CMakeFiles/test.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/CMakeFiles/myvector.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/test/CMakeFiles/rebuild_cache.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/test/CMakeFiles/edit_cache.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/test/CMakeFiles/test.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/test/CMakeFiles/main.dir
+/home/sriharshak1/MYPROJECT/CPP_Projects/templates/build/test/CMakeFiles/template_test.dir

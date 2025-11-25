@@ -5,11 +5,11 @@
 
 class Wallet
 {
-  int mMoney;
+  int mMoney{0u};
   std::mutex mtx;
 
 public:
-  Wallet() : mMoney(0) {}
+  Wallet() {}
   int getMoney() { return mMoney; }
   void addMoney(int money)
   {
