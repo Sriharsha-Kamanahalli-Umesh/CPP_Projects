@@ -1,0 +1,37 @@
+name: Build and run tests
+run-name: ${{ github.actor }} builds and tests the change
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sriharsha-kamanahalli-umesh/myproject-ubuntu-noble:latest
+      credentials:
+       username: ${{ github.actor }}
+       password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Build project
+        working-directory: ${{ github.workspace }}
+        run: |
+            chmod +x ./build_project.sh
+            ./build_project.sh
+            ls -l build/
+      - name: Change owner
+        run: chown -R ubuntu:ubuntu  build/*
+      - name: Run tests
+        run: |
+          chmod +x ./rungtests.sh
+          ./rungtests.sh
+      - name: Save artifacts
+        run: |
+          cd build 
+          mkdir artifacts
+          cmake --install . --prefix artifacts
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: myproject-${{ github.sha }}
+          path: build/artifacts/*
