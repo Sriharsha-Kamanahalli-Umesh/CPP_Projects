@@ -23,8 +23,8 @@ jobs:
         run: chown -R ubuntu:ubuntu  build/*
       - name: Run tests
         run: |
-          cd build
-          QT_QPA_PLATFORM=offscreen su -c "ctest -j --output-on-failure" ubuntu
+          chmod +x ./rungtests.sh
+          ./rungtests.sh
       - name: Save artifacts
         run: |
           cd build 
